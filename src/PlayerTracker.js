@@ -41,8 +41,8 @@ function PlayerTracker(gameServer, socket) {
     this.massGainMult = 0; // When mass is gained, it applies here
 
     // Scramble systems
-    this.scrambleX = 0;
-    this.scrambleY = 0;
+    this.scrambleX = -4000;
+    this.scrambleY = -4000;
     this.scrambleID = 0;
     this.scrambleColor = {
         from: -1,
@@ -55,7 +55,7 @@ function PlayerTracker(gameServer, socket) {
         this.pID = gameServer.getNewPlayerID();
         // Gamemode function
         gameServer.gameMode.onPlayerInit(this);
-        this.resetScramble();
+        // this.resetScramble();
     }
 }
 
@@ -208,13 +208,14 @@ PlayerTracker.prototype.update = function() {
     this.nodeAdditionQueue = []; // Reset addition queue
 
     // Update leaderboard
-    if (this.gameServer.tickLB == 5)
+    if (this.gameServer.tickLB == 5) {
         this.socket.sendPacket(new Packet.UpdateLeaderboard(
             this.gameServer.leaderboard,
             this.gameServer.gameMode.packetLB,
             this.socket.packetHandler.protocolVersion,
             this.pID
         ));
+    }
 
     var box = this.getBox().getBounds();
 

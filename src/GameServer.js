@@ -444,7 +444,9 @@ GameServer.prototype.update = function() {
     var hr3e = process.hrtime(hr3s);
 
     var hr4s = process.hrtime();
-    if (this.run && this.tickLB == 5) this.updateLeaderboard();
+    if (this.run && this.tickLB == 5) {
+        this.updateLeaderboard();
+    }
     var hr4e = process.hrtime(hr4s);
 
     this.lastUpdate += 40;

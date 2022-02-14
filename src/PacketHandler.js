@@ -85,6 +85,12 @@ PacketHandler.prototype.handleMessage = function(message) {
                     c.borderTop + this.socket.playerTracker.scrambleY,
                     c.borderBottom + this.socket.playerTracker.scrambleY
                 ));
+                // this.socket.sendPacket(new Packet.SetBorder(
+                //     c.borderLeft + this.socket.playerTracker.scrambleX,
+                //     c.borderRight + this.socket.playerTracker.scrambleX,
+                //     c.borderTop + this.socket.playerTracker.scrambleY,
+                //     c.borderBottom + this.socket.playerTracker.scrambleY
+                // ));
             }
             break;
         case 255:

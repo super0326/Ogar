@@ -42,6 +42,7 @@ UpdateLeaderboard.prototype.build = function() {
                     var isMe = player.pID == this.sendingUser ? 1 : 0;
                     buffer.setUint32(isMe);                                     // If to display red color text
                     buffer.setStringUTF8(name);                                 // UTF-8 string
+                    // if(isMe) buffer.setUint32(i);
                     buffer.setUint8(0);                                         // UTF-8 null terminator
                 } else {
                     if (player.cells[0])
